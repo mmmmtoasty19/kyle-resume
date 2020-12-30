@@ -1,0 +1,88 @@
+---
+name: William Kyle
+surname: Belanger
+position: "Field Application Specialist"
+address: "435 Gibson Dairy Road, Elizabethtown NC 28337"
+phone: 843-455-5122
+www: kyleb.rbind.io
+email: "william.belanger@knights.ucf.edu"
+github: mmmmtoasty19
+date: "`r format(Sys.time(), '%B %Y')`"
+output: 
+  vitae::moderncv:
+    theme: classic
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+library(vitae)
+library(tidyverse)
+library(here)
+library(lubridate)
+library(tibble)
+
+```
+
+```{r jobs, include=FALSE}
+jobs.raw <- read.csv(here::here("data", "jobs.csv"),na.strings = "")
+jobs <- jobs.raw %>% 
+  fill(start,end,what,with,where,why) %>% 
+  mutate(
+    start = mdy(start)
+    ,end = mdy(end)
+  ) %>% 
+  mutate( when = case_when(
+    is.na(end) ~ glue::glue("{year(start)}--Present") %>% as.character(),
+    year(start) == year(end) ~ year(end) %>% as.character(),
+    TRUE ~ glue::glue("{year(start)}--{year(end)}") %>% as.character()
+  ))
+
+
+
+jobs %>%  glimpse()
+```
+
+# About Me
+  I am a highly skilled Medical Technologist, with a passion for Data Science and Visualization.  I bring with me 11 years of experience in the medical world, and understand what is needed for proper data analysis.  I have manged employees in the past, and worked on both large and small project teams. I am focused on bridging the gap between medical personnel and information technologists.
+
+# Technical Skills
+ - Data Analysis
+ - Data Visualization
+ - Intermediate level in R
+ - Basic Understanding of Python and SQL
+ - Highly skilled in Microsoft Office
+
+# Education
+
+```{r}
+readr::read_csv("../data/education.csv") %>% 
+  brief_entries(Degree, Year, Institution)
+
+```
+
+# Jobs
+
+```{r}
+detailed_entries(jobs
+                 ,what  = what
+                 ,when  = when
+                 ,with  = with
+                 ,where = where
+                 ,why   = why)
+```
+
+# Professional Licenses
+
+```{r}
+tribble(
+  ~ Institution,~ Year, ~ With
+  ,"ASCP", "2010 - Present", "Medical Laboratory Scientist"
+) %>% 
+  brief_entries(Institution,Year,With)
+```
+
+
+
+# References
+  
+  Available on request
