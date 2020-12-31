@@ -5,7 +5,7 @@ position: "Field Application Specialist"
 address: "435 Gibson Dairy Road, Elizabethtown NC 28337"
 phone: 843-455-5122
 www: kyleb.rbind.io
-email: "william.belanger@knights.ucf.edu"
+email: "wkbelanger0526@email.campbell.edu"
 github: mmmmtoasty19
 date: "`r format(Sys.time(), '%B %Y')`"
 output: 
