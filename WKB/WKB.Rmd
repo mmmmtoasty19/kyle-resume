@@ -46,11 +46,13 @@ jobs %>%  glimpse()
   I am a highly skilled Medical Technologist, with a passion for Data Science and Visualization.  I bring with me 11 years of experience in the medical world, and understand what is needed for proper data analysis.  I have manged employees in the past, and worked on both large and small project teams. I am focused on bridging the gap between medical personnel and information technologists.
 
 # Technical Skills
- - Data Analysis
- - Data Visualization
- - Intermediate level in R
- - Basic Understanding of Python and SQL
- - Highly skilled in Microsoft Office
+  - Data Analysis
+  - Data Visualization
+  - Advanced level in R
+  - Intermediate Level SQL
+  - Basic level in Python
+  - Advanced level in Microsoft Office
+
 
 # Education
 
