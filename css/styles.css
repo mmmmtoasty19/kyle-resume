@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap')
+
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  color: #444
+}
+
+* {
+  /* Override default margins*/
+  --pagedjs-margin-right: 0.2in;
+  --pagedjs-margin-left: 0.2in;
+  --pagedjs-margin-top: 0.2in;
+  --pagedjs-margin-bottom: 0.2in;
+}
+
+
+:root{
+  --sidebar-width: 12rem; /* side bar width */
+  --sidebar-background-color: #2C446F;
+  --decorator-border: 2px solid #2C446F; /* change color and thickness of timeline */
+
+}
+
+
+
+.decorator::after{
+  background-color: #2C446F; /* change color timeline dots */
+}
+
+[data-id="main"] h2 {
+  color: #2C446F;
+}
+
+
+.aside {
+  color: white;
+}
+
+.aside h2 {
+  color: white;
+}

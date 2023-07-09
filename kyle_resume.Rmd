@@ -4,6 +4,9 @@ author: Kyle Belanger
 date: "`r Sys.Date()`"
 output:
   pagedown::html_resume:
+    css:
+      - css\styles.css
+      - resume
     # set it to true for a self-contained HTML page but it'll take longer to render
     self_contained: true
 # uncomment this line to produce HTML and PDF in RStudio:
@@ -64,7 +67,9 @@ Skills {#skills}
 --------------------------------------------------------------------------------
 
 ```{r}
+
 build_skill_bars(skills)
+
 ```
 
 Experienced Medical Technologist with high skills in data analytics and visualization
