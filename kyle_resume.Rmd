@@ -10,7 +10,7 @@ output:
     # set it to true for a self-contained HTML page but it'll take longer to render
     self_contained: true
 # uncomment this line to produce HTML and PDF in RStudio:
-#knit: pagedown::chrome_print
+knit: pagedown::chrome_print
 ---
 
 
@@ -63,12 +63,15 @@ contact_info %>% glue_data("- <i class='fa fa-{icon}'></i> {contact}")
 - For more information, please contact me via email.
 
 
-Skills {#skills}
+Software Skills {#skills}
 --------------------------------------------------------------------------------
 
 ```{r}
 
-build_skill_bars(skills)
+# build_skill_bars(skills)
+
+skills %>% glue_data("- {skill} <br>")
+
 
 ```
 
