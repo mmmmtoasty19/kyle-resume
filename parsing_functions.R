@@ -44,6 +44,8 @@ strip_links_from_cols <- function(data, cols_to_strip){
   data
 }
 
+section_id  <- "education"
+
 # Take a position dataframe and the section id desired
 # and prints the section to markdown. 
 print_section <- function(position_data, section_id){
@@ -85,10 +87,10 @@ print_section <- function(position_data, section_id){
       "\n\n",
       "{loc}",
       "\n\n",
-      "{timeline}", 
+      "{timeline}",
       "\n\n",
       "{description_bullets}",
-      "\n\n\n",
+      "\n\n\n"
     )
 }
 

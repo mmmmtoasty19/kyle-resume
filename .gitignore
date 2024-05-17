@@ -39,3 +39,4 @@ vignettes/*.pdf
 # ignore old resume 
 
 old/ 
+.vscode/launch.json

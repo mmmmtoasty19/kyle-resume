@@ -19,7 +19,6 @@ knitr::opts_chunk$set(
   results = 'asis'
   ,echo = FALSE
 )
-
 library(tidyverse)
 library(glue)
 
@@ -32,10 +31,8 @@ source('parsing_functions.R')
 source('gather_data.R')
 
 
-position_data <- position_data %>% 
+position_data <- position_data %>%
   filter(in_resume)
-  
-
 ```
 
 
@@ -97,7 +94,7 @@ Education {data-icon=graduation-cap data-concise=true}
 --------------------------------------------------------------------------------
 
 ```{r}
-position_data %>% print_section('education')
+position_data %>% print_section("education")
 ```
 
 

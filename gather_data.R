@@ -8,7 +8,3 @@ position_data <- read_sheet(sheet_loc, sheet = "positions")
 skills        <- read_sheet(sheet_loc, sheet = "skills")
 contact_info  <- read_sheet(sheet_loc, sheet = "contact_info")
 text_blocks   <- read_sheet(sheet_loc, sheet = "text_block")
-
-
-
-
