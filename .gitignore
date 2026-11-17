@@ -40,3 +40,6 @@ vignettes/*.pdf
 
 old/ 
 .vscode/
+
+# ignore report outputs, run fresh on each machine
+outputs/
