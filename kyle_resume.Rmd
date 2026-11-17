@@ -9,8 +9,6 @@ output:
       - resume
     # set it to true for a self-contained HTML page but it'll take longer to render
     self_contained: true
-# uncomment this line to produce HTML and PDF in RStudio:
-knit: pagedown::chrome_print
 ---
 
 
@@ -40,7 +38,7 @@ Aside
 ================================================================================
 
 ```{r out.width='80%'}
-knitr::include_graphics(here::here("images", "IMG_0387.jpg"))
+knitr::include_graphics(here::here("images", "IMG_0387.JPG"), rel_path = FALSE)
 ```
 
 

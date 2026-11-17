@@ -1,5 +1,9 @@
+dir.create("outputs", showWarnings = FALSE)
 
-# Have to set this prior to running RMD Document
-Sys.setenv(RSTUDIO_PANDOC="C:/Users/belangew/AppData/Local/Pandoc")
+html <- rmarkdown::render(
+  "kyle_resume.Rmd",
+  output_dir = "outputs",
+  knit_root_dir = getwd()
+)
 
-rmarkdown::render("kyle_resume.Rmd", output_format = "all")
+pagedown::chrome_print(html, output = "outputs/kyle_resume.pdf")
