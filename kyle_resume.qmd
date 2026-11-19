@@ -1,0 +1,85 @@
+---
+title: "Kyle Belanger's Resume"
+author:
+  firstname: Kyle
+  lastname: Belanger
+  position: "Informatics Consultant"
+  contacts:
+    - icon: assets/icon/fa-envelope.svg
+      text: wkbelanger@gmail.com
+      url: "mailto:wkbelanger@gmail.com"
+    - icon: assets/icon/fa-github.svg
+      text: github.com/mmmmtoasty19
+      url: https://github.com/mmmmtoasty19
+    - icon: assets/icon/fa-phone.svg
+      text: (910) 879-7408
+      url: "tel:+19108797408"
+format: awesomecv-typst
+execute:
+  echo: false
+  warning: false
+  message: false
+brand:
+  typography:
+    base: Calibri
+  color:
+    primary: "#2C446F"
+    link: "#2C446F"
+  defaults:
+    awesomecv-typst:
+      font-header: Calibri
+# profile-photo: assets/img/IMG_0387.JPG
+---
+
+```{r}
+library(dplyr)
+library(typstcv)
+
+source("gather_data.R")
+
+# Entries as typstcv expects: one date string per row, current roles first
+prepare_entries <- function(data, section_id) {
+  data |>
+    filter(in_resume, section == section_id) |>
+    mutate(
+      # Guard against start/end entered in the wrong order
+      first_year = pmin(start, end, na.rm = TRUE),
+      last_year = if_else(is.na(end), NA_real_, pmax(start, end, na.rm = TRUE)),
+      date = case_when(
+        is.na(last_year) ~ paste(first_year, "- Present"),
+        first_year == last_year ~ as.character(first_year),
+        .default = paste(first_year, "-", last_year)
+      )
+    ) |>
+    # Current positions first, then most recent end year
+    arrange(desc(is.na(last_year)), desc(last_year), desc(first_year)) |>
+    rename(location = loc, description = institution)
+}
+
+detail_cols <- c("description_1", "description_2", "description_3", "description_4")
+```
+
+## Summary
+
+```{r}
+#| output: asis
+cat(filter(text_blocks, loc == "intro")$text)
+```
+
+## Education
+
+```{r}
+#| output: asis
+position_data |>
+  prepare_entries("education") |>
+  resume_entry(details = detail_cols)
+```
+
+## Professional Experience
+
+```{r}
+#| output: asis
+position_data |>
+  prepare_entries("industry") |>
+  resume_entry(details = detail_cols)
+```

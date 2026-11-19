@@ -1,9 +1,5 @@
-dir.create("outputs", showWarnings = FALSE)
-
-html <- rmarkdown::render(
-  "kyle_resume.Rmd",
-  output_dir = "outputs",
-  knit_root_dir = getwd()
+quarto::quarto_render(
+  "kyle_resume.qmd",
+  output_file = "kyle_resume.pdf",
+  quarto_args = c("--output-dir", "outputs")
 )
-
-pagedown::chrome_print(html, output = "outputs/kyle_resume.pdf")

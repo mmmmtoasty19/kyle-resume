@@ -36,12 +36,14 @@ vignettes/*.pdf
 *.knit.md
 
 
-# ignore old resume 
+# ignore old resume
 
-old/ 
+old/
 .vscode/
 
 # ignore report outputs, run fresh on each machine
 outputs/
 
 .posit/
+/.quarto/
+**/*.quarto_ipynb
