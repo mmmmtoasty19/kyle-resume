@@ -3,7 +3,7 @@ title: "Kyle Belanger's Resume"
 author:
   firstname: Kyle
   lastname: Belanger
-  position: "Informatics Consultant"
+  position: "Laboratory Informatics Consultant | Workflow Optimization & Lab Analytics"
   contacts:
     - icon: assets/icon/fa-envelope.svg
       text: wkbelanger@gmail.com
