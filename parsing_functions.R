@@ -51,7 +51,8 @@ section_id  <- "education"
 print_section <- function(position_data, section_id){
   position_data %>% 
     filter(section == section_id) %>% 
-    arrange(desc(end), !is.na(start)) %>% 
+    # Current positions (no end date) sort first
+    arrange(desc(is.na(end)), desc(end), !is.na(start)) %>% 
     mutate(id = 1:n()) %>% 
     pivot_longer(
       starts_with('description'),
@@ -67,10 +68,10 @@ print_section <- function(position_data, section_id){
     ungroup() %>% 
     filter(description_num == 'description_1') %>% 
     mutate(
-      timeline = ifelse(
-        is.na(start) | start == end,
-        end,
-        glue('{end} - {start}')
+      timeline = case_when(
+        is.na(end) & !is.na(start) ~ glue('Present - {start}'),
+        is.na(start) | start == end ~ as.character(end),
+        TRUE ~ glue('{end} - {start}')
       ),
       description_bullets = ifelse(
         no_descriptions,
