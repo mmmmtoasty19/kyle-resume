@@ -43,3 +43,5 @@ old/
 
 # ignore report outputs, run fresh on each machine
 outputs/
+
+.posit/
